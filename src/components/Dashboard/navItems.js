@@ -60,12 +60,6 @@ export const mainNavItems = (
 
 export const secondaryNavItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
+
   </div>
 );

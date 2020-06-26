@@ -2,16 +2,16 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: '',
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+const firebaseConfig = {
+  apiKey: "AIzaSyB9HOLCAafwJH6rZXDKiQGMcNeJp8DblTI",
+  authDomain: "inventory-system-55e4b.firebaseapp.com",
+  databaseURL: "https://inventory-system-55e4b.firebaseio.com",
+  projectId: "inventory-system-55e4b",
+  storageBucket: "inventory-system-55e4b.appspot.com",
+  messagingSenderId: "536330619575",
+  appId: "1:536330619575:web:c2dd552bafb12a0ca31b32"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 export default firebase 
