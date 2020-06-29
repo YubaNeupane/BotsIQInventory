@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -9,6 +9,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import Navigation from './Navigation';
 import ProductRouter from '../Routes/ProductRouter';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,12 +28,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = props => {
+  const [isAdmin, setAdmin] = useState(false);
+
+  var docRef = props.firestore.collection("users").doc(props.uid);
+
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+      if(doc.data().isAdmin != undefined){
+        setAdmin(doc.data().isAdmin)
+      }
+    } else {
+        console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+
+  
   const classes = useStyles();
   const { products, isLoading } = props;
 
   return (
     <div className={classes.root}>
-      <Navigation />
+      <Navigation admin = {isAdmin}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         {(!products || isLoading) && <LinearProgress color="secondary" />}
@@ -64,7 +82,7 @@ export default compose(
     return [
       {
         collection: 'products',
-        where: [['userId', '==', props.uid]],
+       // where: [['userId', '==', props.uid]], // to be able to display to all comment this
       },
     ];
   }),

@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 
 import { mainNavItems, secondaryNavItems } from './navItems';
+import { userNavItems} from './userNavItems';
 import { signOut } from '../../actions/auth';
 
 const drawerWidth = 240;
@@ -84,7 +85,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Navigation = props => {
-  const { signOut, user } = props;
+
+  const { signOut, user, admin } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -96,58 +98,110 @@ const Navigation = props => {
     setOpen(false);
   };
 
-  return (
-    <div className={classes.root}>
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden,
-            )}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            BotsIQ Inventory
-          </Typography>
-          <Button onClick={signOut} color="inherit">
-            {user.firstName}, logout
-          </Button>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-        }}
-        open={open}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>{mainNavItems}</List>
-        <Divider />
-        <List>{secondaryNavItems}</List>
-      </Drawer>
-    </div>
-  );
+  if(admin){
+    return (
+      <div className={classes.root}>
+        <AppBar
+          position="absolute"
+          className={clsx(classes.appBar, open && classes.appBarShift)}
+        >
+          <Toolbar className={classes.toolbar}>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={handleDrawerOpen}
+              className={clsx(
+                classes.menuButton,
+                open && classes.menuButtonHidden,
+              )}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.title}
+            >
+              BotsIQ Inventory
+            </Typography>
+            <Button onClick={signOut} color="inherit">
+              {user.firstName}, logout
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+          }}
+          open={open}
+        >
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>{mainNavItems}</List>
+        </Drawer>
+      </div>
+    );
+  }else{
+    return(
+      <div className={classes.root}>
+        <AppBar
+          position="absolute"
+          className={clsx(classes.appBar, open && classes.appBarShift)}
+        >
+          <Toolbar className={classes.toolbar}>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={handleDrawerOpen}
+              className={clsx(
+                classes.menuButton,
+                open && classes.menuButtonHidden,
+              )}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.title}
+            >
+              BotsIQ Inventory
+            </Typography>
+            <Button onClick={signOut} color="inherit">
+              {user.firstName}, logout
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+          }}
+          open={open}
+        >
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>{userNavItems}</List>
+        </Drawer>
+      </div>
+    )
+  }
+
 };
 
 Navigation.propTypes = {

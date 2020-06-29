@@ -14,6 +14,7 @@ const PrivateRoute = props => {
         if (!auth.uid) {
           return <Redirect to={SIGNIN} />;
         }
+        
 
         return <Component {...props} />;
       }}
@@ -27,6 +28,7 @@ PrivateRoute.propTypes = {
 };
 
 const mapStateToProps = state => {
+  var isAdmin = false;
   return {
     auth: state.firebase.auth,
   };
