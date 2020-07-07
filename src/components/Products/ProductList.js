@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +12,8 @@ import Title from '../Title';
 import ProductCard from './ProductCard';
 import Empty from '../Empty';
 import ConfirmDialog from '../shared/ConfirmDialog';
+import firebase from 'firebase/app';
+
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -26,7 +28,24 @@ const ProductList = ({ categoryProducts, match, history, removeCategory }) => {
     params: { category },
   } = match;
 
+  const [isAdmin,setIsAdmin] = useState(false)
+  const getData = async() => {
+    const userRef = firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid);
+    const doc = await userRef.get();
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      if(doc.data().isAdmin !== undefined){
+        setIsAdmin(doc.data().isAdmin)
+      }
+    }
+  }
+  useEffect(() => {
+      getData()
+  },[]);
+
   const deleteCategory = category => {
+    
     removeCategory(category).then(res => {
       if (res) {
         history.push(routes.CATEGORYLIST);
@@ -37,7 +56,7 @@ const ProductList = ({ categoryProducts, match, history, removeCategory }) => {
   return (
     <div>
       <Title title={`All ${category} Products`} />
-      <Grid container alignItems="center">
+      {isAdmin ? <Grid container alignItems="center">
         <Link
           to={{
             pathname: routes.ADDPRODUCT,
@@ -58,7 +77,8 @@ const ProductList = ({ categoryProducts, match, history, removeCategory }) => {
         </Link>
 
         <ConfirmDialog confirmAction={() => deleteCategory(category)} />
-      </Grid>
+      </Grid>:null}
+      
 
       <Box display="flex" flexwrap="wrap">
         {categoryProducts.length > 0 ? (

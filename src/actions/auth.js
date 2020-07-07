@@ -39,7 +39,10 @@ export const signUp = newUser => {
     const firebase = getFirebase();
     const firestore = getFirestore();
 
-    firebase
+    if(newUser.firstName ===''|| newUser.lastName === '' || newUser.school===''){
+      dispatch({ type: AUTH_ERROR, payload: 'Please fill out all the required fields' });
+    }else{
+      firebase
       .auth()
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then(resp => {
@@ -49,6 +52,9 @@ export const signUp = newUser => {
           .set({
             firstName: newUser.firstName,
             lastName: newUser.lastName,
+            isAdmin:false,
+            school:newUser.school,
+            email:newUser.email
           });
       })
       .then(() => {
@@ -57,5 +63,9 @@ export const signUp = newUser => {
       .catch(err => {
         dispatch({ type: AUTH_ERROR, payload: err.message });
       });
+
+    }
+
+ 
   };
 };

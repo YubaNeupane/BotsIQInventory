@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import {MenuItem,Select,InputLabel} from '@material-ui/core'
 
 import { signUp } from '../../actions/auth';
 import * as routes from '../Routes/routes';
@@ -21,11 +22,16 @@ const SignUp = props => {
   const [lastName, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [school, setSchool] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault();
-    signUp({ firstName, lastName, email, password });
+    signUp({ firstName, lastName, email, password,school });
   };
+
+  const handleSchoolChange = (e) =>{
+    setSchool(e.target.value);
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -85,7 +91,25 @@ const SignUp = props => {
                 autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={12}justify="center">
+              <InputLabel id="demo-simple-select-helper-label" required>School:</InputLabel>
+              <Select 
+                required
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                style={{marginTop:10,width:'100%',height:35}}
+                
+                value={school}
+                onChange={handleSchoolChange}
+              >
+                <MenuItem value="" required><em>None</em></MenuItem>
+                <MenuItem value={'Badlwin High School'}>Baldwin High School</MenuItem>
+                <MenuItem value={'BotsIQ'}>BotsIQ</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </Grid>
           </Grid>
+          
           <FormButton isLoading={isLoading} text="Create Account" />
           <Grid container justify="center">
             <Link to={routes.SIGNIN} text="Already have an account? Sign in" />

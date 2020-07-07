@@ -9,6 +9,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import Navigation from './Navigation';
 import ProductRouter from '../Routes/ProductRouter';
+import StudentProductRoutery from '../Routes/StudentProductRoutery';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +28,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+let user = null;
 const Dashboard = props => {
   const [isAdmin, setAdmin] = useState(false);
 
@@ -47,7 +50,10 @@ const Dashboard = props => {
   
   const classes = useStyles();
   const { products, isLoading } = props;
+  // console.log(props)
+  
 
+  // console.log(user)
   return (
     <div className={classes.root}>
       <Navigation admin = {isAdmin}/>
@@ -55,7 +61,8 @@ const Dashboard = props => {
         <div className={classes.appBarSpacer} />
         {(!products || isLoading) && <LinearProgress color="secondary" />}
         <Container maxWidth="lg" className={classes.container}>
-          <ProductRouter {...props} />
+          {isAdmin ? <ProductRouter {...props} isAdmin={isAdmin} /> : <StudentProductRoutery {...props} isAdmin={isAdmin}/>}
+          
         </Container>
       </main>
     </div>
@@ -63,6 +70,7 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
+  user = state.firebase.auth.uid
   return {
     uid: state.firebase.auth.uid,
     products: state.firestore.ordered.products,

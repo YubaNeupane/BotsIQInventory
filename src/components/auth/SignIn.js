@@ -13,6 +13,8 @@ import Header from '../Header';
 import FormButton from '../shared/FormButton';
 import Link from '../shared/Link';
 
+import ResetPasswordModal from './../../ResetPasswordModal/ResetPasswordModal'
+
 const SignIn = props => {
   const classes = useStyles();
   const { authError, signIn, isLoading } = props;
@@ -63,7 +65,7 @@ const SignIn = props => {
           />
           <FormButton isLoading={isLoading} text="SignIn" />
           <Grid container justify="space-between">
-            <Link text="Forgot Password?" to="/" />
+            <ResetPasswordModal></ResetPasswordModal>
             <Link text="Don't Have an Account?" to={routes.SIGNUP} />
           </Grid>
         </form>
