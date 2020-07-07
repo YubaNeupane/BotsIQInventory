@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import Ballot from '@material-ui/icons/Ballot';
-import LibraryAdd from '@material-ui/icons/LibraryAdd';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+
 import Search from '@material-ui/icons/Search';
 
 import * as routes from '../Routes/routes';

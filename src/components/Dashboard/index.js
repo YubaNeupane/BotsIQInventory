@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-let user = null;
 const Dashboard = props => {
   const [isAdmin, setAdmin] = useState(false);
 
@@ -37,7 +36,7 @@ const Dashboard = props => {
 
   docRef.get().then(function(doc) {
     if (doc.exists) {
-      if(doc.data().isAdmin != undefined){
+      if(doc.data().isAdmin !== undefined){
         setAdmin(doc.data().isAdmin)
       }
     } else {
@@ -70,7 +69,6 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
-  user = state.firebase.auth.uid
   return {
     uid: state.firebase.auth.uid,
     products: state.firestore.ordered.products,

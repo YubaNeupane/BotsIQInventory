@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 
-import { mainNavItems, secondaryNavItems } from './navItems';
+import { mainNavItems } from './navItems';
 import { userNavItems} from './userNavItems';
 import { signOut } from '../../actions/auth';
 

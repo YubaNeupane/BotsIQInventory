@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Recent from '../Recent';
-import QRCode from "react-qr-code";
 
 const Home = () => {
   return (

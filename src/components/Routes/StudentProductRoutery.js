@@ -3,10 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import * as routes from './routes';
 import Home from '../Home';
-import AddProduct from '../Products/AddProduct';
 import CategoryList from '../CategoryList';
 import ProductList from '../Products/ProductList';
-import UpdateProduct from '../Products/UpdateProduct';
 import Search from '../Search';
 import ProductDetail from '../Products/ProductDetail';
 

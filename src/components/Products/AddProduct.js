@@ -6,7 +6,6 @@ import { createProduct } from '../../actions/product';
 import { DASHBOARD } from '../Routes/routes';
 import ProductForm from './ProductForm';
 import Title from '../Title';
-import { signIn } from '../../actions/auth';
 
 
 const AddProduct = props => {

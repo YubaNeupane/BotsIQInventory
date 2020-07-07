@@ -30,10 +30,10 @@ const ProductDetail = props => {
   
   useEffect(() => {
     const { product}= props;
-    if(product != undefined){
+    if(product !== undefined){
       getData(product)
     }
-  },[]);
+  });
 
 
 
