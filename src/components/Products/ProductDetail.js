@@ -76,11 +76,13 @@ const ProductDetail = props => {
             <Typography component="p">
               <u>Description:</u> {product.description}
             </Typography>
-            <Typography component="p">
+            {isAdmin ?  <Typography component="p">
               {moment(product.createdAt.toDate()).format(
                 'MMMM Do YYYY, h:mm a',
               )}
-            </Typography>
+              </Typography>
+            : null}
+            
             {isAdmin ?  <Grid container alignItems="center">
               <Button
                 size="small"
@@ -104,10 +106,7 @@ const ProductDetail = props => {
               <br></br>
               <center>
                <LendingModel data = {props}></LendingModel>
-
               </center>
-              
-            
             </div>}
             
           </Paper>

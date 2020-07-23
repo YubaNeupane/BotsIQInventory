@@ -61,7 +61,6 @@ const Dashboard = props => {
         {(!products || isLoading) && <LinearProgress color="secondary" />}
         <Container maxWidth="lg" className={classes.container}>
           {isAdmin ? <ProductRouter {...props} isAdmin={isAdmin} /> : <StudentProductRoutery {...props} isAdmin={isAdmin}/>}
-          
         </Container>
       </main>
     </div>

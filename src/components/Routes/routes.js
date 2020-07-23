@@ -7,3 +7,5 @@ export const ADDPRODUCT = `${DASHBOARD}/addproduct`;
 export const CATEGORYLIST = `${DASHBOARD}/categories`;
 export const PRODUCT = `${DASHBOARD}/product`;
 export const SEARCH = `${DASHBOARD}/search`;
+export const StudentOrderView = `${DASHBOARD}/studentOderInfo`;
+export const adminUserManager = `${DASHBOARD}/adminUserManager`;

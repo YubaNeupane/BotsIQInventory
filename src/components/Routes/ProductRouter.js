@@ -7,8 +7,9 @@ import AddProduct from '../Products/AddProduct';
 import CategoryList from '../CategoryList';
 import ProductList from '../Products/ProductList';
 import UpdateProduct from '../Products/UpdateProduct';
-import Search from '../Search';
-import ProductDetail from '../Products/ProductDetail';
+import Search from '../Search/Index';
+import ProductDetail from '../Products/ProductDetail.js';
+import adminUserManager from '../AdminUserManager/index.js'
 
 const ProductRouter = () => {
   return (
@@ -29,6 +30,12 @@ const ProductRouter = () => {
       <Route 
         path={routes.SEARCH} 
         component={Search} 
+      />
+      
+      <Route
+       exact
+        path={routes.adminUserManager} 
+        component={adminUserManager} 
       />
       <Route
         exact

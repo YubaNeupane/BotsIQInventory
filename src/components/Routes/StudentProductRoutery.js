@@ -7,6 +7,8 @@ import CategoryList from '../CategoryList';
 import ProductList from '../Products/ProductList';
 import Search from '../Search';
 import ProductDetail from '../Products/ProductDetail';
+import StudentOrderInfo from '../StudentOrderInfo/index.js'
+
 
 const StudentProductRoutery = (props) => {
   return (
@@ -23,6 +25,10 @@ const StudentProductRoutery = (props) => {
       <Route 
         path={routes.SEARCH} 
         component={Search} 
+      />
+       <Route 
+        path={routes.StudentOrderView} 
+        component={StudentOrderInfo} 
       />
       <Route
         exact

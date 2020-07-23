@@ -54,7 +54,8 @@ export const signUp = newUser => {
             lastName: newUser.lastName,
             isAdmin:false,
             school:newUser.school,
-            email:newUser.email
+            email:newUser.email,
+            currentlyLending:[]
           });
       })
       .then(() => {

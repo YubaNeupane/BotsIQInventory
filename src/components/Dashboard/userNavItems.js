@@ -5,6 +5,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import Ballot from '@material-ui/icons/Ballot';
+import InfoIcon from '@material-ui/icons/Info';
 
 import Search from '@material-ui/icons/Search';
 
@@ -36,6 +37,14 @@ export const userNavItems = (
           <Search />
         </ListItemIcon>
         <ListItemText primary="Search" />
+      </ListItem>
+    </Link>
+    <Link to={routes.StudentOrderView} style={link}>
+      <ListItem button>
+        <ListItemIcon>
+          <InfoIcon/>
+        </ListItemIcon>
+        <ListItemText primary="Order Information" />
       </ListItem>
     </Link>
   </div>

@@ -47,12 +47,15 @@ export const mainNavItems = (
         <ListItemText primary="Search" />
       </ListItem>
     </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
+    <Link to={routes.adminUserManager} style={link}>
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Student Management" />
+      </ListItem>
+    </Link>
+
   </div>
 );
 

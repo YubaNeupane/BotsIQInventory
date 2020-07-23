@@ -13,7 +13,7 @@
 
 
 # misc
-/src/config
+/src
 .DS_Store
 .env
 .env.local
