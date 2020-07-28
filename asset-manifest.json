@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/BotsIQInventory/static/js/main.6e727a2d.chunk.js",
+    "main.js.map": "/BotsIQInventory/static/js/main.6e727a2d.chunk.js.map",
+    "runtime~main.js": "/BotsIQInventory/static/js/runtime~main.60252bc9.js",
+    "runtime~main.js.map": "/BotsIQInventory/static/js/runtime~main.60252bc9.js.map",
+    "static/css/2.d41dc3a3.chunk.css": "/BotsIQInventory/static/css/2.d41dc3a3.chunk.css",
+    "static/js/2.dd6295e0.chunk.js": "/BotsIQInventory/static/js/2.dd6295e0.chunk.js",
+    "static/js/2.dd6295e0.chunk.js.map": "/BotsIQInventory/static/js/2.dd6295e0.chunk.js.map",
+    "index.html": "/BotsIQInventory/index.html",
+    "precache-manifest.95a420786ffc6c8ce787bdbc8d58052f.js": "/BotsIQInventory/precache-manifest.95a420786ffc6c8ce787bdbc8d58052f.js",
+    "service-worker.js": "/BotsIQInventory/service-worker.js",
+    "static/css/2.d41dc3a3.chunk.css.map": "/BotsIQInventory/static/css/2.d41dc3a3.chunk.css.map"
+  }
+}
