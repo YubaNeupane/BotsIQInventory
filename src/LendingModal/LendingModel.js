@@ -14,7 +14,6 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import firebase from 'firebase'
 import emailjs from 'emailjs-com'
-import ToastBar from './../components/Snack/Toastbar.js'
 
 
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -25,7 +24,6 @@ import 'react-infinite-calendar/styles.css'; // Make sure to import the default 
 
 const userId = 'user_f9Weuah3b6knK7v7GIzLf'
 
-const todayDate = new Date()
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,6 +87,7 @@ export default function FullScreenDialog({data}) {
 
   const handleLending= async()=>{
     emailjs.init(userId);
+    const v = product.serials.slice(0,quantityAmount)
    
     let data = [{
       productName: product.name,
@@ -97,6 +96,7 @@ export default function FullScreenDialog({data}) {
       lendTime: todayDate.toJSON(),
       model:product.model,
       id:product.id,
+      serial:v
     }];
     const copyData = {
       productName: product.name,
@@ -106,7 +106,7 @@ export default function FullScreenDialog({data}) {
       school:undefined,
       firstName:undefined,
       lastName:undefined,
-      email: undefined
+      email: undefined,
     }
     const userRef = firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid);
     const doc = await userRef.get();
@@ -128,11 +128,23 @@ export default function FullScreenDialog({data}) {
       .then(function() {
           console.log("Document successfully written!");
           sendMail(copyData)
+      })
+      .catch(function(error) {
+          console.error("Error writing document: ", error);
+      });
+
+      firebase.firestore().collection("products").doc(product.id).set({
+        serials:product.serials.slice(quantityAmount)
+      }, {merge: true})
+      .then(function() {
+          console.log("Document successfully written!");
+          sendMail(copyData)
           handleClose()
       })
       .catch(function(error) {
           console.error("Error writing document: ", error);
       });
+
     }
   }
 
@@ -145,7 +157,7 @@ export default function FullScreenDialog({data}) {
   function getMonday(d) {
     d = new Date(d);
     var day = d.getDay(),
-        diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+        diff = d.getDate() - day + (day === 0 ? -6:1); // adjust when day is sunday
     return new Date(d.setDate(diff));
   }
 
@@ -154,10 +166,11 @@ export default function FullScreenDialog({data}) {
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
+
   return (
     <div>
       {product.serials.length !== 0 ? <Button size = 'large' variant="contained" color="primary" onClick={handleClickOpen}>
-        LEND
+        BORROW
       </Button> : <Button size = 'large' variant="contained" color="primary" onClick={handleClickOpen} disabled={true}>
         OUT OF STOCK
       </Button>}
@@ -202,21 +215,23 @@ export default function FullScreenDialog({data}) {
               placeholder="Any Addition Notes"
               variant="outlined"
             />
+
           </Grid>
-          <Grid item xs={12}justify="center" style={{width:'50',marginTop:"25%", marginLeft:''}} >        
+          
+          <Grid item xs={12}justify="center" style={{width:'50',marginTop:"20%", marginLeft:''}} > 
+          <Typography variant="h7">Equipment can only be borrowed on a Monday for the entire week.  After receiving your request, BotsIQ will follow up to schedule delivery and pick-up.</Typography>
 
           <InfiniteCalendar
-          
+            Header='HEllo'
             min={lastWeek}
-            minDate={new Date(todayDate.getFullYear(), todayDate.getMonth()+1, todayDate.getDay())}
+            minDate={new Date()}
             width={380}
             height={320}
-            selected={todayDate}
             onSelect={(f)=>setTodayDate(f)}
             disabledDays={[0,2,3,4,5,6]}
             disabledDates={[getMonday(new Date())]}
-            minDate={lastWeek}
           />
+
           </Grid>
         </Container>
       </Dialog>

@@ -5,7 +5,7 @@ import * as routes from './routes';
 import Home from '../Home';
 import CategoryList from '../CategoryList';
 import ProductList from '../Products/ProductList';
-import Search from '../Search';
+import Search from '../Search/Index';
 import ProductDetail from '../Products/ProductDetail';
 import StudentOrderInfo from '../StudentOrderInfo/index.js'
 

@@ -1,5 +1,6 @@
 {
   "name": "inventory",
+  "homepage": "http://YubaNeupane.github.io/BotsIQInventory  ",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +9,7 @@
     "emailjs-com": "^2.4.1",
     "firebase": "^6.2.4",
     "fuse.js": "^3.4.5",
+    "gh-pages": "^3.1.0",
     "moment": "^2.24.0",
     "nodemailer": "^6.4.10",
     "prop-types": "^15.7.2",
@@ -31,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
