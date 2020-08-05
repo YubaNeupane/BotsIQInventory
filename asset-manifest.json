@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/BotsIQInventory/static/js/main.7371cc47.chunk.js",
-    "main.js.map": "/BotsIQInventory/static/js/main.7371cc47.chunk.js.map",
+    "main.js": "/BotsIQInventory/static/js/main.c02fcfb3.chunk.js",
+    "main.js.map": "/BotsIQInventory/static/js/main.c02fcfb3.chunk.js.map",
     "runtime~main.js": "/BotsIQInventory/static/js/runtime~main.60252bc9.js",
     "runtime~main.js.map": "/BotsIQInventory/static/js/runtime~main.60252bc9.js.map",
     "static/css/2.d41dc3a3.chunk.css": "/BotsIQInventory/static/css/2.d41dc3a3.chunk.css",
-    "static/js/2.e3a96c22.chunk.js": "/BotsIQInventory/static/js/2.e3a96c22.chunk.js",
-    "static/js/2.e3a96c22.chunk.js.map": "/BotsIQInventory/static/js/2.e3a96c22.chunk.js.map",
+    "static/js/2.7c34ae7c.chunk.js": "/BotsIQInventory/static/js/2.7c34ae7c.chunk.js",
+    "static/js/2.7c34ae7c.chunk.js.map": "/BotsIQInventory/static/js/2.7c34ae7c.chunk.js.map",
     "index.html": "/BotsIQInventory/index.html",
-    "precache-manifest.50ca50df023d83408e4018faa0b61f90.js": "/BotsIQInventory/precache-manifest.50ca50df023d83408e4018faa0b61f90.js",
+    "precache-manifest.79b1bc32d42d9dcf27999a1403482ffd.js": "/BotsIQInventory/precache-manifest.79b1bc32d42d9dcf27999a1403482ffd.js",
     "service-worker.js": "/BotsIQInventory/service-worker.js",
     "static/css/2.d41dc3a3.chunk.css.map": "/BotsIQInventory/static/css/2.d41dc3a3.chunk.css.map"
   }
