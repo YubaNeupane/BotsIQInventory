@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d2cfe9cff92bc871a907b858a2774e9d",
+    "revision": "ff78d32c11bfb36943a1c4ca42a0a414",
     "url": "/BotsIQInventory/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/BotsIQInventory/static/js/2.7c34ae7c.chunk.js"
   },
   {
-    "revision": "df3996b8dcfcb24bc1bd",
-    "url": "/BotsIQInventory/static/js/main.c02fcfb3.chunk.js"
+    "revision": "6bb1c05ffeb3465eaa1b",
+    "url": "/BotsIQInventory/static/js/main.08a106bc.chunk.js"
   },
   {
     "revision": "2c831f76b08b163ae655",
